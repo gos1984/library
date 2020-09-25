@@ -12,7 +12,6 @@ import java.util.List;
 @Repository
 public class AuthorDAOImpl implements DAO<Author> {
 
-
     private SessionFactory sessionFactory;
 
     @Autowired
@@ -36,12 +35,12 @@ public class AuthorDAOImpl implements DAO<Author> {
     }
 
     @Override
-    public Author update() {
+    public Author update(Author author) {
         return null;
     }
 
     @Override
-    public void delete() {
+    public void delete(Author author) {
 
     }
 }

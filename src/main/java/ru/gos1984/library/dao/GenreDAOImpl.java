@@ -10,7 +10,7 @@ import ru.gos1984.library.entity.Genre;
 import java.util.List;
 
 @Repository
-public class GenreDAOImpl implements DAO<Genre>{
+public class GenreDAOImpl implements DAO<Genre> {
 
 
     private SessionFactory sessionFactory;
@@ -35,12 +35,12 @@ public class GenreDAOImpl implements DAO<Genre>{
     }
 
     @Override
-    public Genre update() {
+    public Genre update(Genre genre) {
         return null;
     }
 
     @Override
-    public void delete() {
+    public void delete(Genre genre) {
 
     }
 }

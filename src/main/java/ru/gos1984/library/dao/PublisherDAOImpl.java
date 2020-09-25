@@ -10,7 +10,7 @@ import ru.gos1984.library.entity.Publisher;
 import java.util.List;
 
 @Repository
-public class PublisherDAOImpl implements DAO<Publisher>{
+public class PublisherDAOImpl implements DAO<Publisher> {
 
     private SessionFactory sessionFactory;
 
@@ -34,12 +34,12 @@ public class PublisherDAOImpl implements DAO<Publisher>{
     }
 
     @Override
-    public Publisher update() {
+    public Publisher update(Publisher publisher) {
         return null;
     }
 
     @Override
-    public void delete() {
+    public void delete(Publisher publisher) {
 
     }
 }

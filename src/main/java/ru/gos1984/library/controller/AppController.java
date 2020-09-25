@@ -3,50 +3,50 @@ package ru.gos1984.library.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.gos1984.library.dao.DAO;
+import ru.gos1984.library.service.MainService;
 
 @Controller
 public class AppController {
 
-    private DAO authorDAO;
-    private DAO genreDAO;
-    private DAO publisherDAO;
+    private MainService authorService;
+    private MainService genreService;
+    private MainService publisherService;
 
     @Autowired
-    @Qualifier("authorDAOImpl")
-    public void setAuthor(DAO authorDAO) {
-        this.authorDAO = authorDAO;
+    @Qualifier("authorServiceImpl")
+    public void setAuthorService(MainService authorService) {
+        this.authorService = authorService;
     }
 
     @Autowired
-    @Qualifier("genreDAOImpl")
-    public void setGenre(DAO genreDAO) {this.genreDAO = genreDAO; }
+    @Qualifier("genreServiceImpl")
+    public void setGenreService(MainService genreService) {
+        this.genreService = genreService;
+    }
 
     @Autowired
-    @Qualifier("publisherDAOImpl")
-    public void setPublisherDAO(DAO publisherDAO) {this.publisherDAO = publisherDAO; }
+    @Qualifier("publisherServiceImpl")
+    public void setPublisherService(MainService publisherService) {
+        this.publisherService = publisherService;
+    }
 
     @GetMapping("/authors")
-    @Transactional
     public String authors(Model model) {
-        model.addAttribute("results", authorDAO.getAll());
+        model.addAttribute("results", authorService.getAll());
         return "list";
     }
 
     @GetMapping("/genres")
-    @Transactional
     public String genres(Model model) {
-        model.addAttribute("results", genreDAO.getAll());
+        model.addAttribute("results", genreService.getAll());
         return "list";
     }
 
     @GetMapping("/publishers")
-    @Transactional
     public String publishers(Model model) {
-        model.addAttribute("results", publisherDAO.getAll());
+        model.addAttribute("results", publisherService.getAll());
         return "list";
     }
 

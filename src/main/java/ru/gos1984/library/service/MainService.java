@@ -1,9 +1,8 @@
-package ru.gos1984.library.dao;
-
+package ru.gos1984.library.service;
 
 import java.util.List;
 
-public interface DAO<T> {
+public interface MainService<T> {
 
     public T get(Long id);
 
@@ -12,5 +11,7 @@ public interface DAO<T> {
     public T update(T t);
 
     public void delete(T t);
+
+    public List<T> search(String search);
 
 }
